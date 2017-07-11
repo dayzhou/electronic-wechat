@@ -29,14 +29,35 @@
 
 To clone and run this repository you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](https://www.npmjs.com/)) installed on your computer. From your command line:
 
+- On MacOSX, you'll have to install Xcode first, in order for `nodejieba` module (containing C++ source code) to compile.
+- On Windows, you'll have to install `windows-build-tools` first in order to compile `nodejieba`:
+  ```
+  npm install --global --production windows-build-tools
+  ```
+
 ``` bash
 # Clone this repository
 git clone https://github.com/geeeeeeeeek/electronic-wechat.git
 # Go into the repository
 cd electronic-wechat
-# Install dependencies and run the app
-npm install && npm start
+# Install dependencies
+npm install
+# And run the app
+npm start
 ```
+
+However the `npm install` command rarely succeed in China mainland due to the reasons "we all know".
+The `npm install` process downloads the compressed `electron` package from the official site:
+`https://github.com/electron/electron/releases`, but this doesn't work for us within the wall.
+So unix users should set the environment variable:
+```
+export NPM_CONFIG_ELECTRON_MIRROR='https://npm.taobao.org/mirrors/electron/'
+```
+while windows users set it as follows:
+```
+set NPM_CONFIG_ELECTRON_MIRROR 'https://npm.taobao.org/mirrors/electron/'
+```
+Then the process will will try to download the compressed `electron` package from the `taobao` registry.
 
 To pack into an app, simply type one of these:
 

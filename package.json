@@ -4,6 +4,8 @@
   "description": "An Electron application for WeChat",
   "main": "src/main.js",
   "scripts": {
+    "install:unix": "export NPM_CONFIG_ELECTRON_MIRROR='https://npm.taobao.org/mirrors/electron/'; npm install",
+    "install:windows": "set NPM_CONFIG_ELECTRON_MIRROR 'https://npm.taobao.org/mirrors/electron/'; npm install",
     "start": "electron src/main.js",
     "build": "./scripts/build-all.sh",
     "build:osx": "./scripts/build.sh darwin x64",
